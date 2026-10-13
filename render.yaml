@@ -1,0 +1,19 @@
+# Render Blueprint: server (Express + WebSocket). Frontend Vercel pe deploy hota hai.
+services:
+  - type: web
+    name: pulse-chat-server
+    runtime: node
+    rootDir: server
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false # Atlas connection string, dashboard mein daalo
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CLIENT_ORIGIN
+        sync: false # Vercel URL, jaise https://your-app.vercel.app

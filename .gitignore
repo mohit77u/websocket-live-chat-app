@@ -1,0 +1,7 @@
+node_modules/
+.env
+.env.local
+.next/
+.playwright-mcp/
+*.log
+.DS_Store
